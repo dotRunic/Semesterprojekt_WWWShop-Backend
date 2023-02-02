@@ -16,22 +16,24 @@ import com.waff.rest.demo.model.UserModel;
 import com.waff.rest.demo.repository.UserRepository;
 
 @RestController
-@RequestMapping("user_form")
+@RequestMapping("/user_form")
 public class UserAPIController {
 
-    @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/user_form")
-    public ResponseEntity<List<UserModel>> userList() {
-        List<UserModel> users = userRepository.findAll();
-        return ResponseEntity.ok(users);
+    public UserAPIController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @GetMapping()
+    public List<UserModel> getUsers() {
+        return userRepository.findAll();
     }
 
     @GetMapping("/{user_type}")
-    public ResponseEntity<List<UserModel>> findAllProductsByType(@PathVariable String user_type) {
+    public List<UserModel> findAllProductsByType(@PathVariable String user_type) {
         List<UserModel> users = userRepository.findByUserType(user_type);
-        return ResponseEntity.ok(users);
+        return users;
     }
 
     @PostMapping
