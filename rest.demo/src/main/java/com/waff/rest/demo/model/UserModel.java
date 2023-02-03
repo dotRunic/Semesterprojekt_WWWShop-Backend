@@ -37,10 +37,11 @@ public class UserModel {
         this.password = password;
     }
 
+    
     public UserModel() {
     }
 
-    // getter - setter
+    // Getter und Setter vom UserModel
 
     public Long getId() {
         return this.id;
