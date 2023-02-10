@@ -36,6 +36,7 @@ public class UserModel {
     @Column(name = "password")
     private String password;
 
+    // CONSTRUCTOR
     public UserModel(Long id, String name, String surname, String email_adress, String userType, String password) {
         this.id = id;
         this.name = name;
@@ -44,12 +45,13 @@ public class UserModel {
         this.userType = userType;
         this.password = password;
     }
-
+    // 
     
+    // EMPTY CONSTRUCTOR - zum initializen von Objekten mit default values
     public UserModel() {
     }
 
-    // Getter und Setter vom UserModel
+    // GETTER und SETTER vom UserModel
 
     public Long getId() {
         return this.id;
