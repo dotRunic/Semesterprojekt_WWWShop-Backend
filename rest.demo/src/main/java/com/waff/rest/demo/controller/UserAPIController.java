@@ -33,7 +33,7 @@ public class UserAPIController {
         return userRepository.findAll();
     }
 
-    // zum Durchsuchen von User_types aus dem User_form 
+    // zum Durchsuchen von User_types aus dem User_form
 
     @GetMapping("/{user_type}")
     public List<UserModel> findAllByType(@PathVariable String user_type) {
