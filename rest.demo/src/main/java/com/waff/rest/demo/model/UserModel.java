@@ -3,7 +3,9 @@ package com.waff.rest.demo.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.Positive;
 import jakarta.persistence.Column;
 
@@ -17,22 +19,27 @@ public class UserModel {
     private Long id;
 
     @NotBlank
+    @Size(min=2, max=64)
     @Column(name = "name")
     private String name;
 
     @NotBlank
+    @Size(min=2, max=64)
     @Column(name = "surname")
     private String surname;
 
     @NotBlank
+    @Email
     @Column(name = "email_adress")
     private String email_adress;
 
     @NotBlank
+    @Size(min=2, max=64)
     @Column(name = "user_type")
     private String userType;
 
     @NotBlank
+    @Size(min=2, max=64)
     @Column(name = "password")
     private String password;
 
