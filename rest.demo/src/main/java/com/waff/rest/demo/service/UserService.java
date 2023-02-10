@@ -29,7 +29,6 @@ public class UserService {
         return userRepository.findAll();
     }
 
-
     public ResponseEntity<UserModel> createProduct(@RequestBody UserModel user_form) {
         user_form = userRepository.save(user_form);
         return ResponseEntity.created(URI.create("http://localhost:8080/user_form")).body(user_form);
@@ -48,8 +47,6 @@ public class UserService {
         user_form = userRepository.save(existingUser);
         return ResponseEntity.ok(user_form);
     }
-
-    // zum Löschen der Einträge aus der User_form Datenbank
 
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         UserModel existingUser = userRepository.findById(id).orElse(null);
